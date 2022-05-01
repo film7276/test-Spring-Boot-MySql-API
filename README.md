@@ -7,3 +7,8 @@ http://localhost:8080/userinfo/1
 
 # Update telephone number
 http://localhost:8080/userinfo/1
+put
+
+{
+    "tel": "0123456789"
+}
