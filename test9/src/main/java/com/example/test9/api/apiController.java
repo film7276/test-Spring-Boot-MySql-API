@@ -11,18 +11,21 @@ import java.util.Optional;
 public class apiController {
     @Autowired
     userRepository userRepository;
-    /* ถ้าเรียก /userinfo ให้โชว์ข้อมูลทั้งหมดในตาราง "userinfo"  */
+
+    /* ถ้าเรียก localhost:8080/userinfo ให้โชว์ข้อมูลทั้งหมดในตาราง "userinfo"  */
     @GetMapping("/userinfo")
     public List<user> getAllUser() {
         return userRepository.findAll();
     }
-    /* ถ้าเรียก /userinfo/เลขของข้อมูล ให้นำเลขมาค้นหา และโชว์ข้อมูลที่เรียก */
+
+    /* ถ้าเรียก localhost:8080/userinfo/1(เลขIDของข้อมูล) ให้นำเลขมาค้นหา และโชว์ข้อมูลที่เรียก */
     @GetMapping("/userinfo/{id}")
     public user getUserById(@PathVariable(value = "id") Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("user", "id", userId));
     }
 
+    /* อัพเดทเบอร์โทร(PUT) localhost:8080/userinfo/1(เลขIDของข้อมูล) ส่งค่าเบอร์โทรใหม่{"tel": "0123456789"} */
     @PutMapping("/userinfo/{id}")
     public user updateUser(@PathVariable(value = "id") Long userId,
                            @Valid @RequestBody user userDetails) {
@@ -35,10 +38,4 @@ public class apiController {
         user updatedUser = userRepository.save(user);
         return updatedUser;
     }
-
-    /*public Optional<user> getUserById(@PathVariable(value = "id") Long userId) {
-        return userRepository.findById(userId);
-    }*/
-
-
 }

@@ -29,6 +29,7 @@ public class user {
             this.tel = tel;
         }
     }
+    /* ตรวจสอบเบอร์โทรที่รับมาว่าตรงเงื่อนไขหรือไม่ */
     public static boolean valphone(@NotNull String te) {
         return te.charAt(0) == '0' && te.length() == 10 && te.matches("[0-9]+");
     }
