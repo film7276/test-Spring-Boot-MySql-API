@@ -1,5 +1,6 @@
 package com.example.test9.api;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Entity;
@@ -14,12 +15,21 @@ import javax.persistence.Table;
 )
 @EntityListeners({AuditingEntityListener.class})
 public class user {
+    public static Object aid;
     @Id
     private long id;
     private String name;
-    private String tel;
+    public String tel;
 
     public Long getId() {return this.id;}
     public String getName() {return this.name;}
     public String getTel() {return this.tel;}
+    public void setTel(String tel) {
+        if (valphone(tel)) {
+            this.tel = tel;
+        }
+    }
+    public static boolean valphone(@NotNull String te) {
+        return te.charAt(0) == '0' && te.length() == 10 && te.matches("[0-9]+");
+    }
 }
