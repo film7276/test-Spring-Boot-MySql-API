@@ -28,6 +28,7 @@ public class Test9ApplicationTests {
 				.orElseThrow(() -> new ResourceNotFoundException("user", "id", userId));*/
 		Assertions.assertNotNull(user.getId());
 		Assertions.assertEquals(user.getId(),testdata.id);
+		Assertions.assertEquals(user.getName(),testdata.name);
 	}
 
 	@PutMapping("/userinfo/{id}")
@@ -47,7 +48,7 @@ public class Test9ApplicationTests {
 	@Valid
 	public class testdata{
 		static long id = 1;
-		String name = "nametest";
+		static String name = "Chang";
 		static String tel = "0123456789";
 	}
 }
