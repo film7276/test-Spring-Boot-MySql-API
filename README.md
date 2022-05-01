@@ -5,5 +5,5 @@ http://localhost:8080/userinfo
 # Get a user
 http://localhost:8080/userinfo/1
 
-# update telephone number
+# Update telephone number
 http://localhost:8080/userinfo/1
