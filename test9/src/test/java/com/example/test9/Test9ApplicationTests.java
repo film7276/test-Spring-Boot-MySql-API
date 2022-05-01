@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static org.mockito.ArgumentMatchers.any;
-
 @SpringBootTest
 
 @RestController
@@ -21,6 +19,7 @@ public class Test9ApplicationTests {
 	userRepository userRepository;
 	@GetMapping("/userinfo/{id}")
 	@Test
+	/* เทสค้นหา ID และตรวจสอบว่าค่าที่เรียกมาว่าตรงกับชื่อ testdata.name หรือไม่ */
 	void TestGetUserById() {
 		user user = userRepository.findById(testdata.id)
 				.orElseThrow(() -> new ResourceNotFoundException("user", "id", testdata.id));
@@ -31,6 +30,7 @@ public class Test9ApplicationTests {
 		Assertions.assertEquals(user.getName(),testdata.name);
 	}
 
+	/* เทสอัพเดทเบอร์โทรศัพท์ */
 	@PutMapping("/userinfo/{id}")
 	@Test
 	void TestUpdateTel(){
@@ -45,6 +45,8 @@ public class Test9ApplicationTests {
 		Assertions.assertNotNull(user.getTel());
 		Assertions.assertEquals(user.getTel(),testdata.tel);
 	}
+
+	/*ตัวแปรสำหรับเทส*/
 	@Valid
 	public class testdata{
 		static long id = 1;

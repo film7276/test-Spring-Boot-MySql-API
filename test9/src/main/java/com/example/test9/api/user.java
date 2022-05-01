@@ -15,7 +15,6 @@ import javax.persistence.Table;
 )
 @EntityListeners({AuditingEntityListener.class})
 public class user {
-    public static Object aid;
     @Id
     private long id;
     private String name;
