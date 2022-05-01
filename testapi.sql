@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 11:21 PM
+-- Generation Time: May 01, 2022 at 11:18 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -38,9 +38,29 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`ID`, `Name`, `Tel`) VALUES
-(1, 'Chang', '0812345678'),
+(1, 'Chang', '0123456789'),
 (2, 'Film', '0879456123'),
 (3, 'lin', '0812345678');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `userinfo`
+--
+ALTER TABLE `userinfo`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `userinfo`
+--
+ALTER TABLE `userinfo`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
